@@ -35,5 +35,5 @@ if submit:
     possibility = score * 100
 
     if label == "positive": col1.metric("호재입니다! 추매각?", "😁", f"{possibility} %")
-    elif label == "negative": col1.metric("악재입니다ㅠㅠ 손절각?", "😭", f"{positive} %")
+    elif label == "negative": col1.metric("악재입니다ㅠㅠ 손절각?", "😭", f"{possibility} %")
     else: col1.metric("이건...저도 잘 모르겠어요... 다른 기사 있나요?", "😅")
