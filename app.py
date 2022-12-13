@@ -1,8 +1,16 @@
 import streamlit as st
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 
-tokenizer = AutoTokenizer.from_pretrained("snunlp/KR-FinBert-SC")
-model = AutoModelForSequenceClassification.from_pretrained("snunlp/KR-FinBert-SC")
+@st.cache
+def load_tokenizer():
+    return AutoTokenizer.from_pretrained("snunlp/KR-FinBert-SC")
+
+@st.cache
+def load_model():
+    return AutoModelForSequenceClassification.from_pretrained("snunlp/KR-FinBert-SC")
+
+tokenizer = load_tokenizer()
+model = load_model()
 classifier = pipeline("text-classification", model=model, tokenizer=tokenizer)
 
 # 웹 페이지 제목
